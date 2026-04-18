@@ -13,10 +13,13 @@ export default function NavAuth() {
     return (
       <button
         type="button"
-        onClick={() => signOut({ callbackUrl: "/" })}
+        onClick={async () => {
+          await signOut({ redirect: false });
+          window.location.assign("/");
+        }}
         className={btnClass}
       >
-        Logout
+         Logout
       </button>
     );
   }
